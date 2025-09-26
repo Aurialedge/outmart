@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, ShoppingCart, Shield, Smartphone, Users, ChevronRight, Menu, X, CheckCircle, Globe, Zap, Lock, TrendingUp, Star, Scan, Brain, Database, Wifi, Eye, ArrowRight, Play, Pause, Activity, Cpu, Radio } from 'lucide-react';
 
-function App() {
+const OutMartAI = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
@@ -94,44 +94,29 @@ function App() {
 
   // Enhanced particle system
   useEffect(() => {
-    const handleResize = () => {
-      // Handle window resize if needed
-    };
-
-    window.addEventListener('resize', handleResize);
-    
     const particles = Array.from({ length: 100 }, (_, i) => ({
       id: i,
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight,
-      size: Math.random() * 3 + 1,
-      speed: Math.random() * 2 + 0.5,
       vx: (Math.random() - 0.5) * 2,
       vy: (Math.random() - 0.5) * 2,
+      size: Math.random() * 3 + 1,
       opacity: Math.random() * 0.8 + 0.2,
       color: ['cyan', 'purple', 'pink'][Math.floor(Math.random() * 3)]
     }));
-    
     setDigitalParticles(particles);
 
     const animateParticles = () => {
-      setDigitalParticles(prevParticles => 
-        prevParticles.map(p => ({
-          ...p,
-          x: (p.x + p.vx + window.innerWidth) % window.innerWidth,
-          y: (p.y + p.vy + window.innerHeight) % window.innerHeight,
-          opacity: Math.sin(Date.now() * 0.003 + p.id) * 0.3 + 0.5
-        }))
-      );
-      animationFrameId = requestAnimationFrame(animateParticles);
+      setDigitalParticles(prev => prev.map(particle => ({
+        ...particle,
+        x: (particle.x + particle.vx + window.innerWidth) % window.innerWidth,
+        y: (particle.y + particle.vy + window.innerHeight) % window.innerHeight,
+        opacity: Math.sin(Date.now() * 0.003 + particle.id) * 0.3 + 0.5
+      })));
     };
-    
-    let animationFrameId = requestAnimationFrame(animateParticles);
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(animationFrameId);
-    };
+    const interval = setInterval(animateParticles, 50);
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -414,7 +399,7 @@ function App() {
           <div className="border-t border-cyan-500/20 mt-12 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p className="text-gray-400 mb-4 md:mb-0 text-lg">
-                2025 OutMart.AI Neural Systems. All rights reserved.
+                © 2025 OutMart.AI Neural Systems. All quantum rights reserved.
               </p>
               <div className="flex items-center text-green-400 text-sm font-black">
                 <div className="relative mr-3">
@@ -436,4 +421,236 @@ function App() {
   );
 };
 
-export default App;
+export default OutMartAI;-sm font-bold tracking-wider">QUANTUM NEURAL SYSTEM • ONLINE</span>
+                <div className="ml-3">
+                  <Activity className="w-4 h-4 text-green-400 animate-pulse" />
+                </div>
+              </div>
+              
+              <h1 className={`text-5xl sm:text-7xl font-black text-white mb-8 leading-tight ${glitchEffect ? 'animate-pulse' : ''}`}>
+                <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse">
+                  NEURAL
+                </span>
+                <br />
+                <span className="text-white relative">
+                  COMMERCE
+                </span>
+                <br />
+                <span className="bg-gradient-to-r from-pink-400 via-red-400 to-orange-400 bg-clip-text text-transparent">
+                  EVOLUTION
+                </span>
+              </h1>
+              
+              <p className="text-xl text-gray-300 mb-10 max-w-xl leading-relaxed">
+                Enter the next dimension of retail intelligence. Our quantum-powered neural networks deploy 
+                advanced AI algorithms with real-time dimensional data fusion for unprecedented shopping evolution.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-6">
+                <button className="group relative overflow-hidden transform hover:scale-105 transition-all duration-500">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-2xl blur-xl opacity-70 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
+                  <div className="relative bg-black px-8 py-4 rounded-2xl font-bold text-lg text-white group-hover:text-cyan-400 transition-all duration-500 flex items-center">
+                    <Cpu className="mr-3 w-6 h-6 animate-spin group-hover:animate-pulse" />
+                    Initialize Neural Link
+                    <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-2 transition-all duration-300" />
+                  </div>
+                </button>
+                <button 
+                  onClick={() => setIsVideoPlaying(!isVideoPlaying)}
+                  className="group flex items-center px-8 py-4 border-2 border-cyan-400/50 text-cyan-400 rounded-2xl hover:bg-cyan-400/10 transition-all duration-500 font-bold transform hover:scale-105"
+                >
+                  <div className="relative mr-3">
+                    {isVideoPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+                  </div>
+                  Neural Demo
+                  <Radio className="ml-3 w-4 h-4 animate-pulse" />
+                </button>
+              </div>
+            </div>
+
+            {/* Enhanced Metrics Dashboard */}
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-cyan-500/20 via-purple-600/20 to-pink-500/20 rounded-3xl blur-3xl animate-pulse"></div>
+              <div className="relative bg-gradient-to-br from-cyan-500/5 via-purple-600/5 to-pink-500/5 backdrop-blur-2xl rounded-3xl p-8 border border-cyan-400/50 group hover:scale-105 transition-all duration-700">
+                
+                <div className="flex items-center justify-between mb-8">
+                  <h3 className="text-2xl font-black text-white">NEURAL STATUS</h3>
+                  <div className="flex items-center text-green-400 text-sm font-bold">
+                    <div className="relative mr-3">
+                      <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                      <div className="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-50"></div>
+                    </div>
+                    OPERATIONAL
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-6">
+                  {digitalMetrics.map((metric, index) => (
+                    <div key={index} className="group relative">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400/20 to-purple-600/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                      <div className="relative bg-black/50 backdrop-blur-xl rounded-2xl p-6 border border-gray-700/50 group-hover:border-cyan-400/50 transition-all duration-500">
+                        <div className="text-3xl font-black text-white mb-2 group-hover:text-cyan-400 transition-colors duration-300">
+                          {metric.value}
+                        </div>
+                        <div className="text-sm text-gray-400 mb-3">{metric.label}</div>
+                        <div className="flex items-center justify-between">
+                          <div className="text-xs text-green-400 font-bold">{metric.trend}</div>
+                          {metric.pulse && (
+                            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8 p-6 bg-gradient-to-r from-cyan-500/10 via-purple-600/10 to-pink-500/10 rounded-2xl border border-cyan-400/30 backdrop-blur-xl">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-sm text-gray-300 font-semibold">QUANTUM PROCESSING CORE</span>
+                    <span className="text-sm text-cyan-400 font-black">{Math.round(94.7 + pulseIntensity * 2)}%</span>
+                  </div>
+                  <div className="relative w-full bg-gray-800 rounded-full h-3 overflow-hidden">
+                    <div 
+                      className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 h-3 rounded-full transition-all duration-1000 relative"
+                      style={{ width: `${94.7 + pulseIntensity * 2}%` }}
+                    >
+                      <div className="absolute inset-0 bg-white/30 animate-pulse"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Enhanced Features Section */}
+      <section id="features" className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-purple-600/20 via-pink-600/20 to-red-600/20 border border-purple-400/50 mb-8 backdrop-blur-xl group hover:scale-105 transition-all duration-500">
+              <Brain className="w-6 h-6 text-purple-400 mr-4 animate-pulse" />
+              <span className="text-purple-400 text-sm font-black tracking-wider">NEURAL CAPABILITY MATRIX</span>
+            </div>
+            
+            <h2 className="text-4xl sm:text-6xl font-black text-white mb-8">
+              Quantum <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse">Intelligence</span> Core
+            </h2>
+            
+            <p className="text-gray-300 max-w-4xl mx-auto text-xl leading-relaxed">
+              Experience the convergence of quantum computing, neural networks, and blockchain security 
+              in our revolutionary retail intelligence platform designed for the post-digital era.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className={`group relative p-10 rounded-3xl bg-gradient-to-br from-white/5 via-white/5 to-transparent border border-white/10 hover:border-cyan-400/80 transition-all duration-700 ${feature.bgGlow} hover:scale-105 cursor-pointer overflow-hidden`}
+                onMouseEnter={() => setActiveFeature(index)}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 via-purple-600/0 to-pink-500/0 group-hover:from-cyan-500/10 group-hover:via-purple-600/10 group-hover:to-pink-500/10 rounded-3xl transition-all duration-700"></div>
+                
+                <div className="relative z-10">
+                  <div className="relative mb-8 group-hover:scale-110 transition-transform duration-500">
+                    <div className={`inline-flex p-5 rounded-2xl bg-gradient-to-r ${feature.color} group-hover:shadow-2xl transition-all duration-500`}>
+                      {feature.icon}
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-white mb-6 group-hover:text-cyan-400 transition-colors duration-500">
+                    {feature.title}
+                  </h3>
+                  
+                  <p className="text-gray-300 mb-8 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                    {feature.description}
+                  </p>
+
+                  <div className="flex items-center justify-between">
+                    <div className="text-xs text-cyan-400 font-black bg-cyan-400/20 px-4 py-2 rounded-full border border-cyan-400/30 group-hover:bg-cyan-400/30 group-hover:scale-105 transition-all duration-300">
+                      {feature.stats}
+                    </div>
+                    <ArrowRight className="w-6 h-6 text-gray-500 group-hover:text-cyan-400 group-hover:translate-x-3 group-hover:scale-110 transition-all duration-500" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Enhanced Roadmap Section */}
+      <section id="roadmap" className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl sm:text-6xl font-black text-white mb-8">
+              Neural <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">Evolution</span> Timeline
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {roadmapPhases.map((phase, index) => (
+              <div
+                key={index}
+                className="group relative bg-gradient-to-b from-white/5 via-white/5 to-transparent rounded-3xl p-8 border border-white/10 hover:border-cyan-400/80 transition-all duration-700 hover:scale-105 cursor-pointer overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-600/5 to-pink-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="relative group-hover:scale-110 transition-transform duration-500">
+                      <div className={`p-4 rounded-xl bg-gradient-to-r ${phase.color}`}>
+                        {phase.icon}
+                      </div>
+                    </div>
+                    <div className="px-4 py-2 rounded-full text-xs font-black border bg-green-400/20 text-green-400 border-green-400/50">
+                      {phase.status}
+                    </div>
+                  </div>
+                  
+                  <div className="text-sm text-cyan-400 font-black mb-3">{phase.phase}</div>
+                  <h3 className="text-xl font-black text-white mb-6 group-hover:text-cyan-400 transition-colors duration-500">
+                    {phase.title}
+                  </h3>
+                  
+                  <div className="mb-8">
+                    <div className="flex items-center justify-between text-sm mb-3">
+                      <span className="text-gray-400 font-semibold">Progress</span>
+                      <span className="text-cyan-400 font-black">{phase.progress}%</span>
+                    </div>
+                    <div className="relative w-full bg-gray-800 rounded-full h-3 overflow-hidden">
+                      <div 
+                        className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 h-3 rounded-full transition-all duration-1000"
+                        style={{ width: `${phase.progress}%` }}
+                      >
+                        <div className="absolute inset-0 bg-white/30 animate-pulse"></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <ul className="space-y-4">
+                    {phase.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-start text-sm text-gray-300">
+                        <div className="w-2 h-2 bg-cyan-400 rounded-full mr-4 mt-2 flex-shrink-0 animate-pulse"></div>
+                        <span className="font-medium">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Enhanced CTA Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="relative">
+            <div className="absolute -inset-8 bg-gradient-to-r from-cyan-600/20 via-purple-600/20 to-pink-600/20 rounded-3xl blur-3xl animate-pulse"></div>
+            <div className="relative bg-gradient-to-br from-black/60 via-gray-900/60 to-black/60 backdrop-blur-3xl rounded-3xl p-12 border-2 border-cyan-400/50 overflow-hidden">
+              
+              <div className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500/20 via-purple-600/20 to-pink-500/20 border-2 border-cyan-400/50 mb-10 group hover:scale-105 transition-all duration-500">
+                <Brain className="w-6 h-6 text-cyan-400 mr-4 animate-pulse" />
+                <span className="text-cyan-400 text
