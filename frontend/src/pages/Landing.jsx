@@ -8,6 +8,7 @@ import ChatDemo from '../components/ChatDemo';
 import Features from '../components/Features';
 import CTA from '../components/CTA';
 import Footer from '../components/Footer';
+import ChatbotButton from '../components/ChatbotButton';
 
 export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
@@ -40,6 +41,7 @@ export default function LandingPage() {
       <CTA />
       
       <Footer />
+      <ChatbotButton />
           </div>
   );
 }
