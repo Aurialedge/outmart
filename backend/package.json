@@ -4,15 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
+    "helmet": "^7.0.0",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^9.0.1"
+  },
+  "optionalDependencies": {
+    "nodemailer": "^6.10.1",
+    "twilio": "^8.33.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"
